@@ -115,7 +115,7 @@ class DKT(nn.Module):
 				self.lstm = nn.Sequential(nn.Linear(batches[0].shape[-1], self.n_embedding),
 										  nn.LSTM(self.n_embedding, self.n_hidden))
 			self.decoder = nn.Sequential(nn.Linear(self.n_hidden, self.n_items),
-										 nn.Dropout(),
+										 nn.Dropout(.25),
 										 nn.Sigmoid())
 			self.to(self.device)
 
