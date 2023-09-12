@@ -94,7 +94,7 @@ class DKT(nn.Module):
 		super().__init__()
 		self.n_hidden = n_hidden
 		self.lr = lr
-		self.Dropout = .25
+		self.Dropout = .5
 		self.batch_size = batch_size
 		self.n_embedding = n_embedding
 		self.device = torch.device(device)
