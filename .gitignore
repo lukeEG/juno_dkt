@@ -3,6 +3,6 @@
 __pycache__/
 build/
 dist/
-juno_dkt.egg-info/
+juno_dkt2.egg-info/
 main.py
 test.ipynb
