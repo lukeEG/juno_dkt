@@ -123,7 +123,7 @@ class DKT(nn.Module):
 		loader = DataLoader(batches, shuffle=True, batch_size=self.batch_size, collate_fn=collate)
 
 		for n in range(n_iter):
-			print('=== Training epoch %d ==='%(n+1))
+			print('=== Luke Training epoch %d ==='%(n+1))
 			iteration = tqdm(loader)
 			self.train()
 			loss_history = []
