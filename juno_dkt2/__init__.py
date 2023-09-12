@@ -94,6 +94,7 @@ class DKT(nn.Module):
 		super().__init__()
 		self.n_hidden = n_hidden
 		self.lr = lr
+		self.dropout = .25
 		self.batch_size = batch_size
 		self.n_embedding = n_embedding
 		self.device = torch.device(device)
@@ -115,7 +116,7 @@ class DKT(nn.Module):
 				self.lstm = nn.Sequential(nn.Linear(batches[0].shape[-1], self.n_embedding),
 										  nn.LSTM(self.n_embedding, self.n_hidden))
 			self.decoder = nn.Sequential(nn.Linear(self.n_hidden, self.n_items),
-										 nn.Dropout(0.90),
+										 nn.Dropout(),
 										 nn.Sigmoid())
 			self.to(self.device)
 
@@ -123,7 +124,7 @@ class DKT(nn.Module):
 		loader = DataLoader(batches, shuffle=True, batch_size=self.batch_size, collate_fn=collate)
 
 		for n in range(n_iter):
-			print('=== Luke90 Training epoch %d ==='%(n+1))
+			print('=== Lukeinputlayer25 Training epoch %d ==='%(n+1))
 			iteration = tqdm(loader)
 			self.train()
 			loss_history = []
