@@ -115,7 +115,7 @@ class DKT(nn.Module):
 				self.lstm = nn.Sequential(nn.Linear(batches[0].shape[-1], self.n_embedding),
 										  nn.LSTM(self.n_embedding, self.n_hidden))
 			self.decoder = nn.Sequential(nn.Linear(self.n_hidden, self.n_items),
-										 nn.Dropout(0.50),
+										 nn.Dropout(0.90),
 										 nn.Sigmoid())
 			self.to(self.device)
 
@@ -123,7 +123,7 @@ class DKT(nn.Module):
 		loader = DataLoader(batches, shuffle=True, batch_size=self.batch_size, collate_fn=collate)
 
 		for n in range(n_iter):
-			print('=== Luke Training epoch %d ==='%(n+1))
+			print('=== Luke90 Training epoch %d ==='%(n+1))
 			iteration = tqdm(loader)
 			self.train()
 			loss_history = []
