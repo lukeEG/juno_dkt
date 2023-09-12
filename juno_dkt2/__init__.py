@@ -90,11 +90,11 @@ class ItemEncoder:
 		return batches
 
 class DKT(nn.Module):
-	def __init__(self, n_hidden, batch_size, lr, n_embedding=None, device='cpu'):
+	def __init__(self, n_hidden, batch_size, lr, n_embedding=None, dropout, device='cpu'):
 		super().__init__()
 		self.n_hidden = n_hidden
 		self.lr = lr
-		self.Dropout = .25
+		self.Dropout = dropout
 		self.batch_size = batch_size
 		self.n_embedding = n_embedding
 		self.device = torch.device(device)
@@ -116,7 +116,7 @@ class DKT(nn.Module):
 				self.lstm = nn.Sequential(nn.Linear(batches[0].shape[-1], self.n_embedding),
 										  nn.LSTM(self.n_embedding, self.n_hidden))
 			self.decoder = nn.Sequential(nn.Linear(self.n_hidden, self.n_items),
-										 nn.Dropout(),
+										 nn.Dropout(self.Dropout),
 										 nn.Sigmoid())
 			self.to(self.device)
 
@@ -124,7 +124,7 @@ class DKT(nn.Module):
 		loader = DataLoader(batches, shuffle=True, batch_size=self.batch_size, collate_fn=collate)
 
 		for n in range(n_iter):
-			print('=== Lukeinputlayer25 Training epoch %d ==='%(n+1))
+			print('=== Lukeinputlayer90 Training epoch %d ==='%(n+1))
 			iteration = tqdm(loader)
 			self.train()
 			loss_history = []
