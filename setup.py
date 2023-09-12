@@ -4,14 +4,14 @@ with open("pypiREADME.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="juno-dkt", # Replace with your own username
+    name="juno_dkt2", # Replace with your own username
     version="0.8.15",
-    author="Juno Hwang",
-    author_email="wnsdh10@snu.ac.kr",
+    author="LGE",
+    author_email="luke.eglington.mail@gmail.com",
     description="Scikit-learn style implementation of Deep Knowledge Tracing models based on pytorch.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/juno-hwang/juno-dkt",
+    url="https://github.com/lukeEG/juno_dkt2",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
