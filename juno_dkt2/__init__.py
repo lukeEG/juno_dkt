@@ -9,7 +9,7 @@ import torch
 from torch import nn, optim
 from torch.nn import functional as F
 from torch.utils.data import DataLoader, Dataset
-from juno_dkt.utils import *
+from juno_dkt2.utils import *
 
 eps = 1e-8
 
