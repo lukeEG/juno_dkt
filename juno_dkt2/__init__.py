@@ -90,11 +90,11 @@ class ItemEncoder:
 		return batches
 
 class DKT(nn.Module):
-	def __init__(self, n_hidden, batch_size, lr, n_embedding=None, dropout, device='cpu'):
+	def __init__(self, n_hidden, batch_size, lr, n_embedding=None, device='cpu'):
 		super().__init__()
 		self.n_hidden = n_hidden
 		self.lr = lr
-		self.Dropout = dropout
+		self.Dropout = .90
 		self.batch_size = batch_size
 		self.n_embedding = n_embedding
 		self.device = torch.device(device)
