@@ -94,7 +94,7 @@ class DKT(nn.Module):
 		super().__init__()
 		self.n_hidden = n_hidden
 		self.lr = lr
-		self.Dropout = .5
+		#self.Dropout = .5
 		self.batch_size = batch_size
 		self.n_embedding = n_embedding
 		self.device = torch.device(device)
@@ -114,9 +114,10 @@ class DKT(nn.Module):
 				self.lstm = nn.LSTM(batches[0].shape[-1], self.n_hidden)
 			else:
 				self.lstm = nn.Sequential(nn.Linear(batches[0].shape[-1], self.n_embedding),
+							  			  nn.Dropout(),
 										  nn.LSTM(self.n_embedding, self.n_hidden))
 			self.decoder = nn.Sequential(nn.Linear(self.n_hidden, self.n_items),
-										 nn.Dropout(self.Dropout),
+										 nn.Dropout(),
 										 nn.Sigmoid())
 			self.to(self.device)
 
